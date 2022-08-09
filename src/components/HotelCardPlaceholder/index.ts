@@ -1,0 +1,1 @@
+export { HotelCardPlaceholder } from "./HotelCardPlaceholder";
