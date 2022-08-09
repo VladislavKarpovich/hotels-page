@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
@@ -52,16 +53,26 @@ export const HotelCard = (props: HotelCardProps) => {
 
           <Typography variant="body2">{hotel.description}</Typography>
 
-          <Typography variant="subtitle1" mt={2}>
-            Contact us:
-          </Typography>
-          <Typography variant="body2">
-            Email: <Link href={`mailto:${hotel.email}`}>{hotel.email}</Link>
-          </Typography>
-          <Typography variant="body2">
-            Phone:{" "}
-            <Link href={`tel:${hotel.telephone}`}>{hotel.telephone}</Link>
-          </Typography>
+          <Grid container>
+            <Grid item xs={12} md={6} mt={2}>
+              <Typography variant="subtitle1">Contact us:</Typography>
+              <Typography variant="body2">
+                Email: <Link href={`mailto:${hotel.email}`}>{hotel.email}</Link>
+              </Typography>
+              <Typography variant="body2">
+                Phone:{" "}
+                <Link href={`tel:${hotel.telephone}`}>{hotel.telephone}</Link>
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} md={6} mt={2}>
+              <Typography variant="subtitle1">Location:</Typography>
+              <Typography variant="body2">
+                {`${hotel.country}, ${hotel.address1}`}
+              </Typography>
+              <Typography variant="body2">{hotel.address2}</Typography>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
       <Typography variant="caption" textAlign="center" component="div">
